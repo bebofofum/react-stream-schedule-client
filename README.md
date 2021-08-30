@@ -1,4 +1,4 @@
-## React Stream Schedule Client
+# React Stream Schedule Client
 
 Created a new react app
 
@@ -6,7 +6,7 @@ Created a new react app
 npx create-react-app react-scheduler-client
 ```
 
-# Add React Router
+## Add React Router
 ```bash
 yarn add react-router-dom
 ```
