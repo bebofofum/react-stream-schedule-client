@@ -6,6 +6,8 @@ Created a new react app
 npx create-react-app react-scheduler-client
 ```
 
+or clone repo.
+
 ## Add React Router
 ```bash
 yarn add react-router-dom
