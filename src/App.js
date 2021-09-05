@@ -23,9 +23,10 @@ function App() {
              <StreamsContainer />
          </Route>
          <Route
-          exact path="streams/new">
-           <AddStreamForm />
-         </Route>
+         exact path="/streams/new"><AddStreamForm /></Route>
+         {/* <Route
+          path='/user/:userId/streams/new'
+          component={AddStreamForm} /> */}
 
        </Switch>
       </Router> 
