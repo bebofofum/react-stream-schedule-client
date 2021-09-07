@@ -10,18 +10,18 @@ class StreamsContainer extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            streams: [{
-                name: "FirstStream",
-                description: "This is a first stream",
-                schedule: "Monday"
-            }, {
-                name: "SecondStream",
-                description: "A second stream",
-                schedule: "Thursday"
-            }],
-            loading: false
+        //add to environment variable later
+        fetch('http://localhost:3000/streams', {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+
         })
+        .then(response => response.json())
+        .then(streamsJson => 
+            console.log('Streams maybe', streamsJson))
     }
 
 
