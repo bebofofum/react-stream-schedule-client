@@ -11,7 +11,7 @@ class StreamsContainer extends Component {
 
     componentDidMount() {
         //add to environment variable later
-        fetch('http://localhost:3000/streams', {
+        fetch('http://localhost:3001/streams', {
             method: 'get',
             headers: {
                 'Accept': 'application/json',
@@ -20,8 +20,14 @@ class StreamsContainer extends Component {
 
         })
         .then(response => response.json())
-        .then(streamsJson => 
-            console.log('Streams maybe', streamsJson))
+        .then(streamsJson => {
+            console.log('Streams maybe', streamsJson)
+            this.setState({ 
+                streams: streamsJson,
+                loading: false
+            })
+        }
+            )
     }
 
 
@@ -29,8 +35,9 @@ class StreamsContainer extends Component {
         return (
             <section className="section is-medium bg-yellow-50">
                 <div className="container is-max-desktop">
-                 <h1 className="">Hi I'm the Stream container</h1>
-                 {this.state.loading ? "loading spinner" : (<StreamsList streams={this.state.streams} />) }
+                 <h1 className="streams-listing-header">Hi I'm the Stream container</h1>
+                 {/* We can also do conditional outside the return, see StreamShowContainer */}
+                 {this.state.loading ? "loading spinner" : <StreamsList streams={this.state.streams} /> } 
                  
                 </div>
             </section>
