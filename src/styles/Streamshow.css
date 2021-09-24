@@ -1,0 +1,9 @@
+.stream-graphic-container {
+    display: flex;
+    flex-direction: column;
+    flex: 0.5;
+    background-color: #363a3f;
+}
+
+
+

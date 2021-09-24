@@ -33,8 +33,8 @@ class StreamsContainer extends Component {
 
     render() {
         return (
-            <section className="section is-medium bg-yellow-50">
-                <div className="container is-max-desktop">
+            <section className="section bg-yellow-100">
+                <div className="container mx-auto m-6 p-12">
                  <h1 className="streams-listing-header">Hi I'm the Stream container</h1>
                  {/* We can also do conditional outside the return, see StreamShowContainer */}
                  {this.state.loading ? "loading spinner" : <StreamsList streams={this.state.streams} /> } 

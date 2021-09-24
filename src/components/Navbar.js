@@ -5,20 +5,22 @@ import { NavLink } from 'react-router-dom';
 class NavBar extends Component {
     render() {
         return (
-            <div>
-                <nav className="flex w-full justify-between text-center bg-gray-200 text-white p-4 space-x-2">
-                    <div>
-                        <NavLink 
-                        to="/"
-                        exact>Home          
-                        </NavLink>
-                        <NavLink 
-                        to="/stream/new"
-                        exact>Add Stream         
-                        </NavLink>
-                    </div>
-                </nav>
-            </div>
+            <ul className="flex border-b">
+                <li class="-mb-px mr-1">
+                    <NavLink 
+                    className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
+                    to="/"
+                    exact>Home          
+                    </NavLink>
+                </li>
+                <li class="mr-1">
+                    <NavLink 
+                    className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                    to="/stream/new"
+                    exact>Add Stream         
+                    </NavLink>
+                </li>
+            </ul>
             
         )
     }
