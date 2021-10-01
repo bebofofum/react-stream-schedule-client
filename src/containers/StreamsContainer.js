@@ -23,7 +23,7 @@ class StreamsContainer extends Component {
         .then(streamsJson => {
             console.log('Streams maybe', streamsJson)
             this.setState({ 
-                streams: streamsJson,
+                streams: streamsJson.data,
                 loading: false
             })
         }
