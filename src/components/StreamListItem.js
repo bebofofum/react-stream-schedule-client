@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const StreamListItem = ({ stream: { id, description, name } }) => {
+const StreamListItem = ({ stream: { id, description, name, schedule, stream_graphic_url } }) => {
     return(
         <section className="relative pt-12 bg-blueGray-50">
             <div className="items-center flex flex-wrap">
@@ -10,7 +10,22 @@ const StreamListItem = ({ stream: { id, description, name } }) => {
                     
 
                 </div>
-                <li className="" key={id}><Link to={`/streams/${id}`}>{name}:</Link> {description}</li>
+                <li className="" key={id}>
+                     <figure className="">
+                        <img 
+                            className="w-full h-full rounded-md object-cover" 
+                            src={stream_graphic_url} 
+                            alt={name} /> 
+                    </figure>
+
+
+                    <div>
+                        <Link to={`/streams/${id}`}>{name}:</Link> {description}
+                    </div>
+                    <p>{schedule}</p>
+                    </li>
+                
+                   
             </div>
 
         </section>
