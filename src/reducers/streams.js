@@ -1,4 +1,3 @@
-import { defaultMinSockets } from "forever-agent";
 import { SUCCESSFULLY_LOADED_STREAMS } from "../actions";
 
 const initialState = {
