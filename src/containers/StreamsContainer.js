@@ -1,33 +1,41 @@
 import React, { Component } from 'react';
 import StreamsList from '../components/StreamsList';
+import { connect } from 'react-redux';
+import { fetchStreams } from '../actions/streams';
 
 
 class StreamsContainer extends Component {
 
-    state = {
-        streams: [],
-        loading: true
-    }
+    // state = {
+    //     streams: [],
+    //     loading: true
+    // }
 
     componentDidMount() {
-        //add to environment variable later
-        fetch('http://localhost:3001/streams', {
-            method: 'get',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
+        //below is the Redux way to use mapDispatch function below
+        this.props.dispatchFetchStreams();
 
-        })
-        .then(response => response.json())
-        .then(streamsJson => {
-            console.log('Streams maybe', streamsJson)
-            this.setState({ 
-                streams: streamsJson.data,
-                loading: false
-            })
-        }
-            )
+
+
+        //converting the below fetch which is React way to now use the mapDispatch function, dispatchFetchStreams
+        //add to environment variable later
+        // fetch('http://localhost:3001/streams', {
+        //     method: 'get',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     }
+
+        // })
+        // .then(response => response.json())
+        // .then(streamsJson => {
+        //     console.log('Streams maybe', streamsJson)
+        //     this.setState({ 
+        //         streams: streamsJson.data,
+        //         loading: false
+        //     })
+        // }
+        //     )
     }
 
 
@@ -37,7 +45,8 @@ class StreamsContainer extends Component {
                 <div className="container mx-auto m-6 p-12">
                  <h1 className="streams-listing-header">Hi I'm the Stream container</h1>
                  {/* We can also do conditional outside the return, see StreamShowContainer */}
-                 {this.state.loading ? "loading spinner" : <StreamsList streams={this.state.streams} /> } 
+                 {this.props.loadingState !== "successful" ? 
+                 "loading spinner" : <StreamsList streams={this.props.streams} /> } 
                  
                 </div>
             </section>
@@ -45,4 +54,19 @@ class StreamsContainer extends Component {
     }
 }
 
-export default StreamsContainer
+const mapStateToProps = (state) => {
+    return {
+        streams: state.streams.streamsList.data,
+        loadingState : state.streams.loadingState
+    }
+}
+
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        dispatchFetchStreams: () => dispatch(fetchStreams())
+    }
+}
+
+//here we wrap our StreamsContainer component into Connect to make use of mapState and mapDispatch and use the store
+
+export default connect(mapStateToProps, mapDispatchtoProps)(StreamsContainer)
