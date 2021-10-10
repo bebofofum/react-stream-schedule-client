@@ -1,8 +1,13 @@
-import { SUCCESSFULLY_LOADED_STREAMS } from '.';
+import { 
+    SUCCESSFULLY_LOADED_STREAMS, 
+    START_LOADING_STREAMS 
+} from '.';
+
 
 
 export const fetchStreams = () => {
     return (dispatch) => {
+        dispatch({ type: START_LOADING_STREAMS })
         fetch('http://localhost:3001/streams', {
             method: 'get',
             headers: {
