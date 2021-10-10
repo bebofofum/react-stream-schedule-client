@@ -2,6 +2,7 @@ import React from 'react';
 import StreamListItem from './StreamListItem';
 
 const StreamsList = ({ streams }) => {
+    console.log('what is', streams)
     return (
         <div className="relative pt-12 bg-blueGray-50">
             <h1 className="text-gray-800 text-3xl font-semibold">I'm the Stream Listing</h1>
