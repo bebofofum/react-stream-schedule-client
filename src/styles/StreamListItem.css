@@ -1,0 +1,41 @@
+.flex-streamitem-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #363a3f;
+}
+
+.flex-streamitem-container {
+    position: relative;
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.flex-streamitem-card {
+    position: relative;
+    max-width: 1050px;
+    background-color: #e1e2a8;
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+
+}
+
+.flex-streamitem-card .img-box {
+    max-width: 400px;
+    flex: 0 0 400px;
+
+}
+
+
+
+.flex-streamitem-right {
+    margin-left: 450px;
+}
+
+
