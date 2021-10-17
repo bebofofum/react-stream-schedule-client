@@ -1,6 +1,7 @@
 import { 
     SUCCESSFULLY_LOADED_STREAMS, 
-    START_LOADING_STREAMS 
+    START_LOADING_STREAMS,
+    SUCCESSFULLY_LOADED_STREAM 
 } from '.';
 
 
@@ -28,3 +29,4 @@ export const fetchStreams = () => {
 
     }
 }
+

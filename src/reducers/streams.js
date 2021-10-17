@@ -1,6 +1,7 @@
 import { 
     SUCCESSFULLY_LOADED_STREAMS, 
-    START_LOADING_STREAMS 
+    START_LOADING_STREAMS,
+    SUCCESSFULLY_LOADED_STREAM 
 } from "../actions";
 
 const initialState = {
@@ -23,6 +24,11 @@ export default function streamsReducer(state = initialState, action) {
                 loadingState: 'successful',
                 streamsList: action.payload
             }
+        case SUCCESSFULLY_LOADED_STREAM:
+            return {
+                
+            }
+
         default:
             return state;
     }

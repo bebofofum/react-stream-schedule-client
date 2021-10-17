@@ -77,6 +77,8 @@ Then in our Stream controller an instance of our Stream is created as an associa
   ```
   fetch('http://localhost:3001/streams/1)
 
+  
+
 
 
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class StreamShowContainer extends Component {
 
@@ -71,4 +72,16 @@ class StreamShowContainer extends Component {
 
 }
 
-export default StreamShowContainer;
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+const mapDispatchtoProps = (dispatch) => {
+    return {
+
+    }
+}
+
+export default connect()(StreamShowContainer);

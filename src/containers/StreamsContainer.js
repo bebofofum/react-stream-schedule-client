@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import StreamsList from '../components/StreamsList';
 import { connect } from 'react-redux';
 import { fetchStreams } from '../actions/streams';
+import Loader from '../components/Loader';
+
 
 
 class StreamsContainer extends Component {
@@ -38,6 +40,10 @@ class StreamsContainer extends Component {
         //     )
     }
 
+    onStreamClick = streamListItem => {
+        console.log('clicking THIS stream', streamListItem)
+    }
+
 
     render() {
         return (
@@ -46,7 +52,7 @@ class StreamsContainer extends Component {
                  <h1 className="streams-listing-header">Hi I'm the Stream container</h1>
                  {/* We can also do conditional outside the return, see StreamShowContainer */}
                  {this.props.loadingState !== "successful" ? 
-                 "loading spinner" : <StreamsList streams={this.props.streams} /> } 
+                 <Loader /> : <StreamsList streams={this.props.streams} onStreamClick={this.onStreamClick} /> } 
                  
                 </div>
             </section>
