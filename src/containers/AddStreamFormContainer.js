@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class AddStreamForm extends Component {
 
@@ -22,7 +23,7 @@ class AddStreamForm extends Component {
             })
             .then(response => response.json())
             .then(streamJson => {
-                console.log(streamJson)
+                this.props.history.push('/');
             })
 
     }
@@ -81,4 +82,10 @@ class AddStreamForm extends Component {
     }
 }
 
-export default AddStreamForm
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        
+    }
+}
+
+export default connect()(AddStreamForm)

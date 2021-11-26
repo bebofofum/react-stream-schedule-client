@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import ActionButton from '../components/ActionButton';
 
 class StreamShowContainer extends Component {
 
@@ -23,6 +25,8 @@ class StreamShowContainer extends Component {
             )
 
     }
+
+    
 
 
     render() { 
@@ -52,10 +56,16 @@ class StreamShowContainer extends Component {
                                     <p className="text-3xl">
                                         {this.state.stream.schedule}
                                     </p>
-                                </div>
-                                
-
-
+                                </div>                            
+                            </div>
+                            <div className="">
+                                <Link
+                                 to={`/streams/${this.state.stream.id}/edit`}>
+                                     <ActionButton buttonName="Edit" />
+                                </Link>
+                            </div>
+                            <div>
+                                <ActionButton buttonName="Delete" />
                             </div>
  
                  </div>

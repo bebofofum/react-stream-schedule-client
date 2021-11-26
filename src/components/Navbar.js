@@ -6,17 +6,17 @@ class NavBar extends Component {
     render() {
         return (
             <ul className="flex border-b">
-                <li class="-mb-px mr-1">
+                <li className="-mb-px mr-1">
                     <NavLink 
                     className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
                     to="/"
                     exact>Home          
                     </NavLink>
                 </li>
-                <li class="mr-1">
+                <li className="mr-1">
                     <NavLink 
                     className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
-                    to="/stream/new"
+                    to="/streams/new"
                     exact>Add Stream         
                     </NavLink>
                 </li>

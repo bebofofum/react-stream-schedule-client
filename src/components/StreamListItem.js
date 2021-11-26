@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EditButton from './EditButton';
 import '../styles/StreamListItem.css'
 
 const StreamListItem = ({ stream, onStreamClick }) => {
@@ -26,7 +25,6 @@ const StreamListItem = ({ stream, onStreamClick }) => {
                         </p>
                         <h3 className="capitalize text-2xl font-semibold text-gray-800">Schedule:</h3>
                         <h2 className="text-2xl font-semibold md:text-4xl text-blue-600">{stream.schedule}</h2>
-                        <div><EditButton /></div>
 
                 </div>
 

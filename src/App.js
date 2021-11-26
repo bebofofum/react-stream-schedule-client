@@ -3,11 +3,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  useParams
 } from "react-router-dom";
 import StreamsContainer from './containers/StreamsContainer';
 import AddStreamForm from './containers/AddStreamFormContainer';
 import StreamShowContainer from './containers/StreamShowContainer';
+import EditStreamForm from './components/EditStreamForm';
 
 import NavBar from './components/Navbar'
 
@@ -24,14 +25,18 @@ function App() {
              <StreamsContainer /> 
          </Route>
          <Route
-          exact path="/stream/new">
-            <AddStreamForm /></Route>
+          exact path="/streams/new"
+          render={(routerProps) => <AddStreamForm {...routerProps} />} />
          {/* <Route
           path='/user/:userId/streams/new'
           component={AddStreamForm} /> */}
           <Route
-            path="/streams/:streamId" 
+            exact path="/streams/:streamId" 
             component={StreamShowContainer} />
+          <Route 
+            exact path="/streams/:streamId/edit"
+            render={(routerProps) => <EditStreamForm {...routerProps} />} />
+            
 
        </Switch>
       </Router> 
