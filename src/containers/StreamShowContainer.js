@@ -1,13 +1,35 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ActionButton from '../components/ActionButton';
+import EditButton from '../components/EditButton';
+import DeleteButton from '../components/DeleteButton';
 
 class StreamShowContainer extends Component {
 
     state = {
         stream: {},
         loading: true
+    }
+
+    handleOnClick = () => {
+        const streamId = this.props.match.params.streamId;
+
+        const requestOptions = {
+            method: 'DELETE',
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        };
+
+        fetch(`http://localhost:3001/streams/${streamId}`, requestOptions)
+        .then(response => response.json())
+        .then(messageJson => {
+            this.props.history.push('/')
+
+        })
+        .catch(error => console.log(error))
+        
     }
 
     componentDidMount() {
@@ -26,7 +48,7 @@ class StreamShowContainer extends Component {
 
     }
 
-    
+
 
 
     render() { 
@@ -61,11 +83,11 @@ class StreamShowContainer extends Component {
                             <div className="">
                                 <Link
                                  to={`/streams/${this.state.stream.id}/edit`}>
-                                     <ActionButton buttonName="Edit" />
+                                     <EditButton buttonName="Edit" />
                                 </Link>
                             </div>
                             <div>
-                                <ActionButton buttonName="Delete" />
+                                <DeleteButton buttonName="Delete" handleRemoveStream={this.handleOnClick} />
                             </div>
  
                  </div>
