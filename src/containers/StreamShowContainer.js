@@ -80,15 +80,18 @@ class StreamShowContainer extends Component {
                                     </p>
                                 </div>                            
                             </div>
-                            <div className="">
-                                <Link
-                                 to={`/streams/${this.state.stream.id}/edit`}>
-                                     <EditButton buttonName="Edit" />
-                                </Link>
-                            </div>
-                            <div>
+                            <div className="inline-flex space-x-8">
+                                <div className="">
+                                    <Link
+                                    to={`/streams/${this.state.stream.id}/edit`}>
+                                        <EditButton buttonName="Edit" />
+                                    </Link>
+                                 </div>
+                                <div>
                                 <DeleteButton buttonName="Delete" handleRemoveStream={this.handleOnClick} />
+                                </div> 
                             </div>
+                           
  
                  </div>
                  </div> 

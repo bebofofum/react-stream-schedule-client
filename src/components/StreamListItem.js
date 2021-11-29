@@ -17,7 +17,7 @@ const StreamListItem = ({ stream, onStreamClick }) => {
                     </li>                   
                 </div>
                 <div className="lg:w-1/2 p-5 px-12">
-                        <h3 className="text-5xl font-semibold text-gray-500 md:text-6xl hover:text-gray-700 pb-6">
+                        <h3 className="text-6xl font-bold text-gray-500 md:text-5xl sm:text-3xl hover:text-gray-700 transition duration-300 pb-6">
                             <Link to={`/streams/${stream.id}`}>{stream.name}</Link> 
                         </h3>
                         <p className="mt-2 text-sm text-gray-500 md:text-lg pb-6">
