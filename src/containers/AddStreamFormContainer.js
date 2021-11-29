@@ -32,9 +32,9 @@ class AddStreamForm extends Component {
 
     render() {
         return (
-            <section>
+            <section className="section bg-yellow-100">
                 <h1 className="max-w-6xl w-3/4 mx-auto pb-12 pt-12 font-bold text-3xl">Add Stream</h1>
-               <form onSubmit={this.handleSubmit} className="max-w-6xl w-3/4 mx-auto shadow-lg px-4">
+               <form onSubmit={this.handleSubmit} className="max-w-6xl w-3/4 bg-white mx-auto shadow-lg px-4">
                    <fieldset className="pt-12">
                        <label htmlFor="name" className="block uppercase">Name</label>
                        <input
