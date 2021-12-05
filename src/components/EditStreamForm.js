@@ -12,7 +12,7 @@ const EditStreamForm = (props) => {
 
     const streamId = props.match.params.streamId
 
-        useEffect(() => {
+        useEffect((streamId) => {
         const requestOptions = {
             method: 'get',
             headers: {

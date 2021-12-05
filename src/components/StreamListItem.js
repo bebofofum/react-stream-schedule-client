@@ -4,8 +4,8 @@ import '../styles/StreamListItem.css'
 
 const StreamListItem = ({ stream, onStreamClick }) => {
     return(
-        <section className="p-12" onClick={() => onStreamClick(stream)} className="w-full">
-            <div className="flex bg-white mb-6 mt-3 p-8 rounded-lg shadow-lg">
+        <section className="w-full" onClick={() => onStreamClick(stream)}>
+            <div className="flex bg-white mt-3 p-8 rounded-lg shadow-lg">
                 <div className="flex items-center md:px-2 lg:w-1/2">
                     <li className="" key={stream.id}>
                         <figure className="w-full h-auto">
