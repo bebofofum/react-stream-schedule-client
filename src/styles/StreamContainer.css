@@ -1,0 +1,21 @@
+.stream-wrapper {
+    background: rgb(2,0,36);
+    border: 2px solid red;
+    background: linear-gradient(39deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+}
+
+.main-header {
+    font-family: Roboto;
+    padding: 1em 0 1em 0;
+    font-size: 4em;
+    line-height: 90%;
+    font-weight: 700;
+    color: white;
+}
+
+.main-container {
+    padding: 2em 5em 10em 5em;
+    margin: 0;
+    width: 100%;
+    max-width: 1024px;
+}

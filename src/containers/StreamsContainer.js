@@ -3,6 +3,7 @@ import StreamsList from '../components/StreamsList';
 import { connect } from 'react-redux';
 import { fetchStreams } from '../actions/streams';
 import Loader from '../components/Loader';
+import '../styles/StreamContainer.css';
 
 
 
@@ -47,9 +48,9 @@ class StreamsContainer extends Component {
 
     render() {
         return (
-            <section className="section bg-yellow-100 p-32">
-                <div className="container mx-auto m-6 p-12">
-                 <h1 className="font-bold text-blue-800 text-6xl">Stream Scheduler</h1>
+            <section className="section stream-wrapper">
+                <div className="main-container">
+                 <h1 className="main-header">Stream Scheduler</h1>
                  {/* We can also do conditional outside the return, see StreamShowContainer */}
                  {this.props.loadingState !== "successful" ? 
                  <Loader /> : <StreamsList streams={this.props.streams} onStreamClick={this.onStreamClick} /> } 

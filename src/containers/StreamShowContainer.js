@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import EditButton from '../components/EditButton';
 import DeleteButton from '../components/DeleteButton';
+import '../styles/StreamContainer.css';
+import '../styles/StreamShowContainer.css';
+
 
 class StreamShowContainer extends Component {
 
@@ -56,9 +59,9 @@ class StreamShowContainer extends Component {
             return <div>Loading spinner</div>
         }
         return ( //we dont need condition logic here since we only load component data once we actually have json from api
-            <section className="section bg-yellow-100">
+            <section className="section stream-wrapper">
                 <div className="container mx-auto">
-                 <h1 className="text-5xl font-bold text-center text-red-800 pb-12">Stream Details</h1>
+                 <h1 className="show-main-header">Stream Details</h1>
                  <div className="flex justify-between m-6">
                      <div className="flex flex-col h-full max-w-lg mx-auto bg-white rounded-md shadow-md p-8">
                             <figure className="">

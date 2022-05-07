@@ -11,6 +11,7 @@ import StreamShowContainer from './containers/StreamShowContainer';
 import EditStreamForm from './components/EditStreamForm';
 
 import NavBar from './components/Navbar'
+import './styles/App.css';
 
 
 function App() {

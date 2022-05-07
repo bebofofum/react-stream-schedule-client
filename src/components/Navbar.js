@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import '../styles/Nav.css';
 import { NavLink } from 'react-router-dom';
 
 class NavBar extends Component {

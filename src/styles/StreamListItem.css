@@ -38,4 +38,38 @@
     margin-left: 450px;
 }
 
+.stream-card {
+    margin-bottom: 2em;
+    background: white;
+    display:flex;
+    padding: 2vw 2vw;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    box-shadow: 5em 1em, rgba(black, .2);
+}
+
+.stream-card-img-container {
+    max-width: 300px;
+    overflow: hidden;
+
+}
+
+
+
+.stream-card-header {
+    font-weight: 500;
+    font-size: 4vw;
+    color: rgb(107 114 128);
+
+}
+
+.stream-card-header:hover {
+    font-weight: 700;
+    font-size: 4vw;
+    color: rgb(55 65 81);
+}
+
+
+
 
