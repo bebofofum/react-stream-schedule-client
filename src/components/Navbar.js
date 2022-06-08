@@ -5,48 +5,66 @@ import GoogleAuth from './GoogleAuth';
 
 class NavBar extends Component {
 
+    handleToggleClick = (e) => {
+        let nav = document.getElementById('nav-show');
+        console.log("I have been clicked", nav)
+        let setDivVis = nav;
+        nav.className === 'nav-show' ? setDivVis = "nav-show--visible" : setDivVis = "nav-show"
+
+        nav.className = setDivVis
+
+
+    }
+
 
     
     render() {
         return (
-            <ul className="menu-flex">
-                <div class="menu-flex__list">
-                    <li className="-mb-px mr-1">
-                        <NavLink 
-                        className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
-                        to="/"
-                        exact>Home          
-                        </NavLink>
-                    </li>
-                    <li className="mr-1">
-                        <NavLink 
-                        className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
-                        to="/streams/new"
-                        exact>Add Stream         
-                        </NavLink>
-                    </li>
-                </div>
-                <div class="menu-flex__list">
-                    <li>
-                        <GoogleAuth />
-                    </li>
+            <ul className="menu">
+                <button onClick={this.handleToggleClick} class="nav-toggle" aria-label="open navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <div id="nav-show" className="nav-show">
+                    <div class="menu__list">
+                        <li className="">
+                            <NavLink 
+                            className="menu__list--item"
+                            to="/"
+                            exact>Home          
+                            </NavLink>
+                        </li>
+                        <li className="">
+                            <NavLink 
+                            className="menu__list--item"
+                            to="/streams/new"
+                            exact>Add Stream         
+                            </NavLink>
+                        </li>
+                    </div>
+                    <div class="menu__list">
+                        <li>
+                            <GoogleAuth />
+                        </li>
 
-                    <li className="-mb-px mr-1">
-                        <NavLink 
-                        className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
-                        to="/signup"
-                        exact>Sign Up          
-                        </NavLink>
-                    </li>
+                        <li className="">
+                            <NavLink 
+                            className="menu__list--item"
+                            to="/signup"
+                            exact>Sign Up          
+                            </NavLink>
+                        </li>
 
-                    <li className="mr-1">
-                        <NavLink 
-                        className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
-                        to="/login"
-                        exact>Login         
-                        </NavLink>
-                    </li>
+                        <li className="">
+                            <NavLink 
+                            className="menu__list--item"
+                            to="/login"
+                            exact>Login         
+                            </NavLink>
+                        </li>
+                    </div>
                 </div>
+
+                
                 
             </ul>
             

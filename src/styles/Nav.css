@@ -1,6 +1,11 @@
-.menu-flex {
-    display: flex;
-    justify-content: space-between;
+.menu {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #037EF1;
+    background-color: #0B2342;
+    /* display: flex; */
+    /* justify-content: space-between; */
     width: 100%;
 }
 
@@ -9,5 +14,129 @@
     gap: 1em;
     margin: 0 2em;
     padding: 0;
+    border: solid 2px red;
+}
+
+.menu__list {
+    /* display: flex;
+    gap: 1em; */
+    margin: 2em 0 0em 0;
+    padding-bottom: 2em;
+    background-color: #0B2342;
+    list-style: none;
+}
+
+.menu__list--item {
+    padding-right: 20px;
+    padding-left: 20px;
+    border-right: solid 2px gray;
+    border-left: solid 2px gray;
+}
+
+
+.nav-toggle {
+    cursor: pointer;
+    border: 0;
+    width: 3em;
+    height: 3em;
+    margin: .5em 0em 1em 0em;
+    padding: 0em ;
+    border-radius: 50%;
+    background: #C1780F;
+    color: white;
+    transition: opacity 250ms ease;
+
+    
+    /* position: absolute; */
+    /* left: 0; */
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+    opacity: .75;
+}
+
+.hamburger {
+    width: 50%;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    display: block;
+    margin: 0 auto;
+    height: 3px;
+    background: white;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    width: 100%;
+}
+
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+
+.nav-show {
+    visibility: hidden;
+    height: 0;
+    position: absolute;
+}
+
+.nav-show--visible {
+    visibility: visible;
+    height: auto;
+    position: relative;
+} 
+
+@media (min-width: 860px) {
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu__list {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        /* justify-content: flex-end; */
+    }
+
+    .nav-show {
+        display: flex;
+        justify-content: space-between;
+        gap: 3em;
+    }
+
+    .nav-show--visible {
+        display: flex;
+        justify-content: space-around;
+        gap: 4em;
+        align-items: center;
+
+    }
+
+    /* .nav-show {
+        visibility: visible;
+    } */
+
+    .nav-toggle {
+        margin: 2em 0 2em 2em;
+    }
+    
+    
+    
+
+
 
 }

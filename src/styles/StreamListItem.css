@@ -41,8 +41,7 @@
 .stream-card {
     margin-bottom: 2em;
     background: white;
-    display:flex;
-    padding: 2vw 2vw;
+    padding: 2.6em;
     border: none;
     border-radius: 12px;
     width: 100%;
@@ -50,25 +49,72 @@
 }
 
 .stream-card-img-container {
-    max-width: 300px;
-    overflow: hidden;
-
+    width: 100%;
+    margin-bottom: 1em;
 }
 
+.stream-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: none;
+    border-radius: 1em;
+}
 
+.stream-card-content {
+    max-width: 85%;
+}
 
 .stream-card-header {
+    padding: .5em 0 .25em 0;
     font-weight: 500;
-    font-size: 4vw;
-    color: rgb(107 114 128);
-
+    font-size: 2.6rem;
+    line-height: 1.5rem;
+    color: #465581;
 }
 
 .stream-card-header:hover {
-    font-weight: 700;
-    font-size: 4vw;
     color: rgb(55 65 81);
 }
+
+.stream-card-description {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: gray;
+    line-height: 1.75rem;
+    padding: .25em 0 1em 0;
+}
+
+.stream-card-schedule {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #468164;
+}
+
+.stream-card-schedule-detail {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #468164;
+}
+
+
+@media (min-width: 700px) {
+
+    .stream-card {
+        display:flex;
+        gap: 2em;
+        justify-content: space-between;
+        max-width: 900px;
+    }
+
+    .stream-card__img {
+        height: 260px;
+    }
+    
+
+}
+
 
 
 

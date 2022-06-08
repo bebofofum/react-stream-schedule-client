@@ -48,7 +48,7 @@ class StreamsContainer extends Component {
 
     render() {
         return (
-            <section className="section stream-wrapper">
+            <section className="stream-wrapper">
                 <div className="main-container">
                  <h1 className="main-header">Stream Scheduler</h1>
                  {/* We can also do conditional outside the return, see StreamShowContainer */}
