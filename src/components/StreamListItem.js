@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ActionButton from './ActionButton';
 import '../styles/StreamListItem.css'
 
 const StreamListItem = ({ stream, onStreamClick }) => {
+
     return(
         <section className="" onClick={() => onStreamClick(stream)}>
             <div className="stream-card">
@@ -21,13 +23,11 @@ const StreamListItem = ({ stream, onStreamClick }) => {
                         </p>
                         <h3 className="stream-card-schedule">Schedule:</h3>
                         <h2 className="stream-card-schedule-detail">{stream.schedule}</h2>
-
-                </div>
-
-                    
-
+                </div>  
             </div>
-            
+            <div>
+                <ActionButton buttonName="Edit"/>
+            </div>  
 
         </section>
     )

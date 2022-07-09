@@ -1,5 +1,18 @@
 import { AUTHENTICATED, NOT_AUTHENTICATED } from '.';
 
+
+export const signIn = () => {
+    return {
+        type: 'SIGNED_IN'
+    };
+};
+
+export const signOut = () => {
+    return {
+        type: 'SIGNED_OUT'
+    };
+};
+
 // this will be used when we are establishing the token like on signup or login
 const setToken = (token) => {
     localStorage.setItem("token", token);

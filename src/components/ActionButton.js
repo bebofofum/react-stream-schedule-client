@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const ActionButton = (props) => {
+const ActionButton = ({buttonName}) => {
     return (
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-9 py-4 px-6 rounded">{props.buttonName} Stream</button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-9 py-4 px-6 rounded">{buttonName} Stream Listing</button>
     )
 }
 

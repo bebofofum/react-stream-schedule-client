@@ -21,11 +21,11 @@ class NavBar extends Component {
     render() {
         return (
             <ul className="menu">
-                <button onClick={this.handleToggleClick} class="nav-toggle" aria-label="open navigation">
-                    <span class="hamburger"></span>
+                <button onClick={this.handleToggleClick} className="nav-toggle" aria-label="open navigation">
+                    <span className="hamburger"></span>
                 </button>
                 <div id="nav-show" className="nav-show">
-                    <div class="menu__list">
+                    <div className="menu__list">
                         <li className="">
                             <NavLink 
                             className="menu__list--item"
@@ -41,7 +41,7 @@ class NavBar extends Component {
                             </NavLink>
                         </li>
                     </div>
-                    <div class="menu__list">
+                    <div className="menu__list">
                         <li>
                             <GoogleAuth />
                         </li>
