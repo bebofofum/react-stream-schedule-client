@@ -61,6 +61,7 @@ class NavBar extends Component {
                             exact>Login         
                             </NavLink>
                         </li>
+                    
                     </div>
                 </div>
 

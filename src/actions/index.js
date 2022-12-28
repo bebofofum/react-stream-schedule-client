@@ -15,7 +15,9 @@ export const SUCCESSFULLY_REMOVED_STREAM = 'SUCCESSFULLY_REMOVED_STREAM';
 export const AUTHENTICATED = 'AUTHENTICATED';
 export const NOT_AUTHENTICATED = 'NOT_AUTHENTICATED';
 
-
+//google auth
+export const SIGNED_IN = "SIGNED_IN";
+export const SIGNED_OUT = "SIGNED_OUT"
 
 
 

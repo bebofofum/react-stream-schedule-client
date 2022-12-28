@@ -1,15 +1,17 @@
 import { AUTHENTICATED, NOT_AUTHENTICATED } from '.';
+import { SIGNED_IN, SIGNED_OUT } from '.';
 
 
-export const signIn = () => {
+export const signIn = (userId) => {
     return {
-        type: 'SIGNED_IN'
+        type: SIGNED_IN,
+        payload: userId
     };
 };
 
 export const signOut = () => {
     return {
-        type: 'SIGNED_OUT'
+        type: SIGNED_OUT
     };
 };
 

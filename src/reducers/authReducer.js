@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    isSignedIn: null
+    isSignedIn: null,
+    userId: null
 }
 
 export default function authReducer(state = INITIAL_STATE, action) {
@@ -7,15 +8,17 @@ export default function authReducer(state = INITIAL_STATE, action) {
         case 'SIGNED_IN': 
             return {
                 ...state,
-                isSignedIn: true
+                isSignedIn: true,
+                userId: action.payload
 
             };
         case 'SIGNED_OUT':
             return {
                 ...state,
-                isSignedIn: false
+                isSignedIn: false,
+                userId: null
             };
-            
+
         default:
             return state;
     }
