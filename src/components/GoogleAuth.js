@@ -1,36 +1,31 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions/auth.js'
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import jwt_decode from "jwt-decode";
+import { CLIENT_ID } from './ClientId.js';
 import '../styles/GoogleAuth.css';
 
 
 class GoogleAuth extends Component {
 
 
+    handleCredResponse = (response) => {
+        console.log("coming from handleCredResponse ", response.credential)
+        const userObject = jwt_decode(response.credential)
+        console.log("user details: ", userObject.sub)
+        const userId = userObject.sub
 
-    handleGoogleCredentialResponse(response) {
-        console.log("Encoded JWT Id token: " + response.credential)
+        this.props.signIn(userId)
 
     }
+
+
+
 
    
 
     componentDidMount() {
-        /* global google */
-        // google.accounts.id.initialize({
-        //     client_id: "964507703250-04ebsekfvcljm5j4ke441ocdtu381sag.apps.googleusercontent.com",
-        //     callback: this.handleGoogleCredentialResponse
-        // })
-
-        // google.accounts.id.renderAuthButton(
-        //     document.getElementById("googleButton"), {
-        //         theme: "filled_black",
-        //         size: "large",
-        //         text: "signin"
-        //     }
-        // )
-
 
         // window.gapi.load('client:auth2', () => {
         //     window.gapi.client.init({
@@ -44,50 +39,81 @@ class GoogleAuth extends Component {
         //         this.auth.isSignedIn.listen(this.onAuthChange)
         //     })
         // })
-    
-
-        
-
-
-
-
 
     }
 
 
 
-    onAuthChange = (isSignedInBool) => {
-        const userId = this.auth.currentUser.get().getId();
-        isSignedInBool ? this.props.signIn(userId) : this.props.signOut()
-        
-    }
+    // onAuthChange = (isSignedInBool) => {
+    //     const userId = this.auth.currentUser.get().getId();
+    //     isSignedInBool ? this.props.signIn(userId) : this.props.signOut()    
+    // }
 
-    handleSignIn = () => {
-        this.auth.signIn();
-    }
-
-    handleSignOut = () => {
-        this.auth.signOut();
-    }
+  
 
 
+    //Keep methods below just in case new react-oauth depen doesn't work
+
+    // handleSignIn = () => {
+    //     this.auth.signIn();
+    // }
+
+    // handleSignOut = () => {
+    //     this.auth.signOut();
+    // }
+
+
+    // renderAuthButton() {
+    //     if(this.props.isSignedIn === null) {
+    //         return null;
+    //     } else if(this.props.isSignedIn) {
+    //         return (
+    //             <button onClick={this.handleSignOut} className="googleButton">Sign Out</button>
+    //         )
+    //     } else {
+    //         return (
+    //             <button onClick={this.handleSignIn} className="googleButton">Sign In</button>
+    //         )
+    //     }
+    // }
     renderAuthButton() {
-        if(this.props.isSignedIn === null) {
-            return null;
-        } else if(this.props.isSignedIn) {
-            return (
-                <button onClick={this.handleSignOut} className="googleButton">Sign Out</button>
-            )
-        } else {
-            return (
-                <button onClick={this.handleSignIn} className="googleButton">Sign In</button>
-            )
-        }
+        this.props.isSignedIn === true ? console.log("client is signed in") : console.log("not signed in")
+
     }
+
+
+
+    onSuccess = (response) => {
+        console.log("LOGIN SUCCESSFUL. Current User = ", response)
+        const userObject = jwt_decode(response.credential)
+        console.log("user details: ", userObject.sub)
+        const userId = userObject.sub
+
+        this.props.signIn(userId)
+
+        const googleButton = document.getElementById("googleLoginBtn")
+        googleButton.style.display = "none"
+
+    }
+
+    onError = (response) => {
+        console.log("LOGIN UNSUCCESSFUL. Error = ", response)
+    }
+
+
 
     render() {
         return (
-            <div>{this.renderAuthButton()}</div>
+            <div id="googleLoginBtn" >
+              <GoogleLogin 
+                clientId={CLIENT_ID}
+                buttonText="Login"
+                onSuccess={this.onSuccess}
+                onError={this.onError}
+                cookiePolicy={'single_host_origin'}
+                isSignedIn={true}
+                />     
+            </div>
         )
     }
 }
