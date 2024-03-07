@@ -3,11 +3,30 @@ import { connect } from 'react-redux';
 
 class AddStreamForm extends Component {
 
+    // const toTitleCase = () => {
+
+    // }
+
     handleSubmit = (event) => {
         event.preventDefault();
 
+       
         const form = event.target;
+        const streamName = form.name.value;
+
+        function toTitleCase(streamName) {
+            if(!streamName){
+                return '';
+            }
+            const strArray = streamName.split(' ').map((word) => {
+                return word[0].toUpperCase() + word.substring[1].toLowerCase();
+            });
+            return strArray.join(' ');
+        }
+
         const body = new FormData();
+
+        
         //this makes a new formdata element to which we append data to item
         //how this submits data to rails we need to think about how the stream params 
         //look in the api and how rails is expecting to receive item

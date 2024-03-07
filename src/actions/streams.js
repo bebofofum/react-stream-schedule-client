@@ -1,7 +1,7 @@
 import { 
-    SUCCESSFULLY_LOADED_STREAMS, 
+    SUCCESSFULLY_FETCHED_STREAMS, 
     START_LOADING_STREAMS,
-    SUCCESSFULLY_LOADED_STREAM 
+    SUCCESSFULLY_CREATED_STREAM 
 } from '.';
 
 
@@ -21,12 +21,17 @@ export const fetchStreams = () => {
         .then(streamsJson => {
             console.log('Streams maybe', streamsJson)
             dispatch({
-                type: SUCCESSFULLY_LOADED_STREAMS,
+                type: SUCCESSFULLY_FETCHED_STREAMS,
                 payload: streamsJson
             })
         }
             )
 
     }
+}
+
+export const createStream = formValues => async dispatch => {
+    // const response = await streams.post('/streams', formValues)
+
 }
 

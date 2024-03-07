@@ -1,7 +1,7 @@
 import { 
-    SUCCESSFULLY_LOADED_STREAMS, 
+    SUCCESSFULLY_FETCHED_STREAMS, 
     START_LOADING_STREAMS,
-    SUCCESSFULLY_LOADED_STREAM 
+    SUCCESSFULLY_FETCHED_STREAM 
 } from "../actions";
 
 const initialState = {
@@ -19,13 +19,17 @@ export default function streamsReducer(state = initialState, action) {
                 loadingState: 'inProgress'
             }
 
-        case SUCCESSFULLY_LOADED_STREAMS:
+        case SUCCESSFULLY_FETCHED_STREAMS:
             return {
                 loadingState: 'successful',
                 streamsList: action.payload
             }
-        case SUCCESSFULLY_LOADED_STREAM:
+        case SUCCESSFULLY_FETCHED_STREAM:
+            //below we need just a single record so we need to pass an id
             return {
+                ...state, 
+                loadingState: 'successful',
+                streamsList: {[action.payload.id]: action.payload}
                 
             }
 
