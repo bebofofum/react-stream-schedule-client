@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StreamsList from '../components/StreamsList';
 import { connect } from 'react-redux';
-import { fetchStreams } from '../actions/streams';
+import { fetchStreams, deleteStream } from '../actions/streams';
 import Loader from '../components/Loader';
 import '../styles/StreamContainer.css';
 
@@ -45,6 +45,10 @@ class StreamsContainer extends Component {
         console.log('clicking THIS stream', streamListItem)
     }
 
+    handleDeleteStream = () => {
+        
+    }
+
 
     render() {
         return (
@@ -70,7 +74,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
     return {
-        dispatchFetchStreams: () => dispatch(fetchStreams())
+        dispatchFetchStreams: () => dispatch(fetchStreams()),
+        dispatchDeleteStream: () => dispatch(deleteStream()),
+        // dispatchEditStream: () => dispatch(editStream())
     }
 }
 

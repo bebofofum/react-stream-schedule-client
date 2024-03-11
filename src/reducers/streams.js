@@ -1,7 +1,8 @@
 import { 
     SUCCESSFULLY_FETCHED_STREAMS, 
     START_LOADING_STREAMS,
-    SUCCESSFULLY_FETCHED_STREAM 
+    SUCCESSFULLY_FETCHED_STREAM,
+    DELETE_STREAM 
 } from "../actions";
 
 const initialState = {
@@ -31,6 +32,12 @@ export default function streamsReducer(state = initialState, action) {
                 loadingState: 'successful',
                 streamsList: {[action.payload.id]: action.payload}
                 
+            }
+        case DELETE_STREAM:
+            return {
+                ...state,
+                loadingState: 'successful',
+                streamsList: {}
             }
 
         default:
