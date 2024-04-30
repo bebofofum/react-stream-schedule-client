@@ -34,7 +34,7 @@ function App() {
             exact path="/streams/:streamId" 
             component={StreamShowContainer} />
           <Route 
-            exact path="/streams/:streamId/edit"
+            exact path="/streams/edit/:streamId"
             render={(routerProps) => <EditStreamForm {...routerProps} />} />
             
 

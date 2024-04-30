@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import EditButton from '../components/EditButton';
-import DeleteButton from '../components/DeleteButton';
 import '../styles/StreamContainer.css';
 import '../styles/StreamShowContainer.css';
 
@@ -14,26 +13,32 @@ class StreamShowContainer extends Component {
         loading: true
     }
 
-    handleOnClick = () => {
-        const streamId = this.props.match.params.streamId;
+    
 
-        const requestOptions = {
-            method: 'DELETE',
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        };
+    // handleOnClick = () => {
+    //     const streamId = this.props.match.params.streamId;
 
-        fetch(`http://localhost:3001/streams/${streamId}`, requestOptions)
-        .then(response => response.json())
-        .then(messageJson => {
-            this.props.history.push('/')
+    //     const requestOptions = {
+    //         method: 'DELETE',
+    //         headers: {
+    //             "Accept": "application/json",
+    //             "Content-Type": "application/json"
+    //         }
+    //     };
 
-        })
-        .catch(error => console.log(error))
+
+
+    //     fetch(`http://localhost:3001/streams/${streamId}`, requestOptions)
+    //     .then(response => response.json())
+    //     .then(messageJson => {
+    //         this.props.history.push('/')
+
+    //     })
+    //     .catch(error => console.log(error))
         
-    }
+    // }
+
+
 
     componentDidMount() {
         const streamId = this.props.match.params.streamId
@@ -91,7 +96,6 @@ class StreamShowContainer extends Component {
                                     </Link>
                                  </div>
                                 <div>
-                                <DeleteButton buttonName="Delete" handleRemoveStream={this.handleOnClick} />
                                 </div> 
                             </div>
                            
@@ -110,16 +114,16 @@ class StreamShowContainer extends Component {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
+// const mapStateToProps = (state) => {
+//     return {
 
-    }
-}
+//     }
+// }
 
-const mapDispatchtoProps = (dispatch) => {
-    return {
+// const mapDispatchtoProps = (dispatch) => {
+//     return {
 
-    }
-}
+//     }
+// }
 
-export default connect()(StreamShowContainer);
+export default (StreamShowContainer);

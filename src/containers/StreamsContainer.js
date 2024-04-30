@@ -16,6 +16,7 @@ class StreamsContainer extends Component {
 
     componentDidMount() {
         //below is the Redux way to use mapDispatch function below
+        console.log('does this work?')
         this.props.dispatchFetchStreams();
 
 
@@ -42,11 +43,11 @@ class StreamsContainer extends Component {
     }
 
     onStreamClick = streamListItem => {
-        console.log('clicking THIS stream', streamListItem)
+        // console.log('clicking THIS stream', streamListItem)
     }
 
-    handleDeleteStream = () => {
-        
+    handleDeleteStream = (stream) => {
+        this.props.dispatchDeleteStream(stream.id);
     }
 
 
@@ -57,7 +58,7 @@ class StreamsContainer extends Component {
                  <h1 className="main-header">Stream Scheduler</h1>
                  {/* We can also do conditional outside the return, see StreamShowContainer */}
                  {this.props.loadingState !== "successful" ? 
-                 <Loader /> : <StreamsList streams={this.props.streams} onStreamClick={this.onStreamClick} /> } 
+                 <Loader /> : <StreamsList streams={this.props.streams} onStreamClick={this.onStreamClick} deleteStream={this.handleDeleteStream} /> } 
                  
                 </div>
             </section>
@@ -66,8 +67,9 @@ class StreamsContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('in my mapState streamsList data', state.streams.streamsList)
     return {
-        streams: state.streams.streamsList.data,
+        streams: state.streams.streamsList,
         loadingState : state.streams.loadingState
     }
 }
@@ -75,7 +77,7 @@ const mapStateToProps = (state) => {
 const mapDispatchtoProps = (dispatch) => {
     return {
         dispatchFetchStreams: () => dispatch(fetchStreams()),
-        dispatchDeleteStream: () => dispatch(deleteStream()),
+        dispatchDeleteStream: (id) => dispatch(deleteStream(id)),
         // dispatchEditStream: () => dispatch(editStream())
     }
 }

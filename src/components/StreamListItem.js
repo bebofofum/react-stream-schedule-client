@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import ActionButton from './ActionButton';
 import '../styles/StreamListItem.css'
 
-const StreamListItem = ({ stream, onStreamClick }) => {
+const StreamListItem = ({ stream, onStreamClick, deleteStream }) => {
 
     const [streamName, setStreamName] = useState([])
 
@@ -19,7 +18,7 @@ const StreamListItem = ({ stream, onStreamClick }) => {
 
     useEffect(() => {
         toTitleCase(stream.name)
-    },[])
+    })
 
     // function toTitleCase(streamName) {
     //     if(!streamName){
@@ -31,6 +30,8 @@ const StreamListItem = ({ stream, onStreamClick }) => {
     //     return strArray.join(' ');
     // }
 
+    
+
 
 
 
@@ -38,8 +39,10 @@ const StreamListItem = ({ stream, onStreamClick }) => {
         <section className="" onClick={() => onStreamClick(stream)}>
             <div className="stream-card">
                 <div className='stream-icon-container'>
-                        <p className='edit-icon' onClick></p>
-                        <p className='delete-icon' onClick></p>
+                    <Link className='edit-icon' to={`/streams/edit/${stream.id}`}>
+                        
+                    </Link>       
+                    <p className='delete-icon' onClick={() => deleteStream(stream)}></p>
                 </div>
 
                 <div className="stream-card-img-container" key={stream.id}>
@@ -59,12 +62,10 @@ const StreamListItem = ({ stream, onStreamClick }) => {
                         <h2 className="stream-card-schedule-detail">{stream.schedule}</h2>
                 </div>  
             </div>
-            <div>
-                <ActionButton buttonName="Edit"/>
-            </div>  
-
         </section>
     )
 }
+
+
 
 export default StreamListItem

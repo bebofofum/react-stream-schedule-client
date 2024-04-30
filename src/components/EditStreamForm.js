@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchStream } from '../actions/streams';
 
 
 const EditStreamForm = (props) => {
+
+    console.log('props from StreamEdit page', props)
 
     const [loadStream, setLoadStream] = useState({})
     // const [updateStream, setUpdateStream] = useState({
@@ -12,22 +16,30 @@ const EditStreamForm = (props) => {
 
     const streamId = props.match.params.streamId
 
-        useEffect((streamId) => {
-        const requestOptions = {
-            method: 'get',
-            headers: {
-                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        };
-        fetch(`http://localhost:3001/streams/${streamId}`, requestOptions)
-        .then(response => response.json())
-        .then(responseData => {
-            console.log('what is this', responseData.data.attributes)
-            setLoadStream(responseData.data.attributes)
-        })
+        useEffect(() => {
+            
+            console.log('testing inside useeffect', props.match.params.streamId)
+            props.dispatchFetchStream(props.match.params.streamId)
+            setLoadStream(props.stream)
+
+        // const requestOptions = {
+        //     method: 'get',
+        //     headers: {
+        //          'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     }
+        // };
+        // fetch(`http://localhost:3001/streams/${streamId}`, requestOptions)
+        // .then(response => response.json())
+        // .then(responseData => {
+        //     console.log('what is this', responseData)
+        //     setLoadStream(responseData.data.attributes)
+        // })
         
     }, [])
+
+    // setLoadStream(props.stream)
+
 
     let { name, description, schedule } = loadStream;
 
@@ -139,4 +151,16 @@ const handleSubmit = (e) => {
 
 }
 
-export default EditStreamForm
+const mapStateToProps = (state, ownProps) => {
+    const filteredStream = state.streams.streamsList.find((stream) => stream.id === ownProps.match.params.streamId)
+    console.log('after filteredstream', filteredStream.attributes)
+    return { stream: filteredStream.attributes }
+}
+
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        dispatchFetchStream: (id) => dispatch(fetchStream(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchtoProps)(EditStreamForm);
