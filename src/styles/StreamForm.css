@@ -1,0 +1,29 @@
+.stream-form {
+    max-width: 90%;
+    margin: 2em auto;
+    border: solid 1px orange;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    padding: 1em;
+    border-radius: 3px;
+}
+
+.stream-form-field {
+    max-width: 100%;
+    border: solid 1px purple;
+    border-radius: 5px;
+    padding: 1em;
+    margin-top: .5em;
+}
+
+.stream-form-field > input {
+    border: solid 1px grey;
+    width: 100%;
+    padding: 1.5em;
+    background-color: rgba(226, 226, 218, 0.5);
+}
+
+.stream-form-field > label {
+    font-size: 1.6em;
+    padding-bottom: 10px;
+    color: gray;
+}

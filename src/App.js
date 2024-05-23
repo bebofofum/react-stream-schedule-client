@@ -11,6 +11,7 @@ import EditStreamForm from './components/EditStreamForm';
 
 import NavBar from './components/Navbar'
 import './styles/App.css';
+import StreamForm from './components/StreamForm';
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
          {/* <Route
           path='/user/:userId/streams/new'
           component={AddStreamForm} /> */}
+          <Route 
+            exact path="/streams/create"
+            component={StreamForm} />
           <Route
             exact path="/streams/:streamId" 
             component={StreamShowContainer} />
